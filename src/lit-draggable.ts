@@ -23,25 +23,32 @@ export class LitDraggable extends LitElement {
 
   protected firstUpdated(): void {
     this.addEventListener("mousedown", this._dragStart.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
     this.addEventListener("touchstart", this._dragStart.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
     document.addEventListener("mousemove", this._drag.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
     document.addEventListener("touchmove", this._drag.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
     document.addEventListener("mouseup", this._dragEnd.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
     document.addEventListener("touchcancel", this._dragEnd.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
     document.addEventListener("touchend", this._dragEnd.bind(this), {
-      passive: true,
+      capture: true,
+      passive: false,
     });
   }
 

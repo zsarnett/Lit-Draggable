@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../dist/lit-draggable-wrapper.js" type="module"></script>
+    <title>Lit Draggable</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 100%;
+        height: 100vh;
+        background-color: #eee;
+        position: relative;
+      "
+    >
+      <lit-draggable-wrapper>
+        <div
+          style="
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 24px;
+            line-height: 100px;
+            margin: auto;
+            cursor: move;
+          "
+        >
+          Drag Me!
+        </div>
+      </lit-draggable-wrapper>
+    </div>
+  </body>
+</html>
