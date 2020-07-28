@@ -1,0 +1,33 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "lit-draggable",
+      "path": "./src\\lit-draggable.ts",
+      "attributes": [
+        {
+          "name": "grid",
+          "type": "[number, number] | undefined"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "grid",
+          "attribute": "grid",
+          "type": "[number, number] | undefined"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    }
+  ]
+}
