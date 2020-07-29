@@ -4,6 +4,8 @@ import {
   LitElement,
   TemplateResult,
   property,
+  CSSResult,
+  css,
 } from "lit-element";
 
 import { fireEvent } from "./util/fire-event";
@@ -120,6 +122,15 @@ export class LitDraggable extends LitElement {
     this._dragging = false;
 
     fireEvent(this, "dragEnd");
+  }
+
+  static get styles(): CSSResult {
+    return css`
+      :host {
+        touch-action: none;
+        user-select: none;
+      }
+    `;
   }
 }
 

@@ -74,6 +74,8 @@ export class LitDraggableWrapper extends LitElement {
       :host {
         position: absolute;
         transform: translate(var(--drag-x), var(--drag-y));
+        touch-action: none;
+        user-select: none;
       }
     `;
   }
