@@ -62,6 +62,7 @@ export class LitDraggable extends LitElement {
     }
 
     ev.stopPropagation();
+    ev.preventDefault();
 
     if (this.disabled) {
       return;
@@ -82,6 +83,7 @@ export class LitDraggable extends LitElement {
 
   private _drag(ev: MouseEvent | TouchEvent): void {
     ev.stopPropagation();
+    ev.preventDefault();
 
     if (!this._dragging || this.disabled) {
       return;
@@ -109,6 +111,7 @@ export class LitDraggable extends LitElement {
 
   private _dragEnd(ev: MouseEvent | TouchEvent): void {
     ev.stopPropagation();
+    ev.preventDefault();
 
     if (!this._dragging || this.disabled) {
       return;
