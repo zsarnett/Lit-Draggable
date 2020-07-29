@@ -144,15 +144,6 @@ export class LitDraggable extends LitElement {
 
     fireEvent(this, "dragEnd");
   }
-
-  static get styles(): CSSResult {
-    return css`
-      :host {
-        touch-action: none;
-        user-select: none;
-      }
-    `;
-  }
 }
 
 declare global {
