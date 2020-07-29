@@ -70,8 +70,6 @@ export class LitDraggable extends LitElement {
       return;
     }
 
-    ev.stopPropagation();
-
     if (ev.type === "touchstart") {
       ev.preventDefault();
 
@@ -100,7 +98,6 @@ export class LitDraggable extends LitElement {
       return;
     }
 
-    ev.stopPropagation();
     if (ev.type === "touchmove") {
       ev.preventDefault();
     }
@@ -133,8 +130,6 @@ export class LitDraggable extends LitElement {
     if (!this._dragging || this.disabled) {
       return;
     }
-
-    ev.stopPropagation();
     if (ev.type === "touchend") {
       ev.preventDefault();
     }
