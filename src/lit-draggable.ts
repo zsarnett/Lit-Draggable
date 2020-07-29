@@ -9,7 +9,8 @@ import {
 } from "lit-element";
 
 import { fireEvent } from "./util/fire-event";
-import { getMouseLocation } from "./util/get-mouse-location";
+import { getMouseTouchLocation } from "./util/get-mouse-touch-location";
+import { getTouchIdentifier } from "./util/get-touch-identifier";
 
 @customElement("lit-draggable")
 export class LitDraggable extends LitElement {
@@ -22,6 +23,8 @@ export class LitDraggable extends LitElement {
   private startY?: number;
 
   private _dragging = false;
+
+  private _touchIdentifier?: number;
 
   protected firstUpdated(): void {
     this.addEventListener("mousedown", this._dragStart.bind(this), {
@@ -63,14 +66,23 @@ export class LitDraggable extends LitElement {
       return;
     }
 
-    ev.stopPropagation();
-    ev.preventDefault();
-
     if (this.disabled) {
       return;
     }
 
-    const pos = getMouseLocation(ev);
+    ev.stopPropagation();
+
+    if (ev.type === "touchstart") {
+      ev.preventDefault();
+
+      this._touchIdentifier = getTouchIdentifier(ev as TouchEvent);
+    }
+
+    const pos = getMouseTouchLocation(ev, this._touchIdentifier);
+
+    if (!pos) {
+      return;
+    }
 
     this.startX = pos.x;
     this.startY = pos.y;
@@ -84,14 +96,20 @@ export class LitDraggable extends LitElement {
   }
 
   private _drag(ev: MouseEvent | TouchEvent): void {
-    ev.stopPropagation();
-    ev.preventDefault();
-
     if (!this._dragging || this.disabled) {
       return;
     }
 
-    const pos = getMouseLocation(ev);
+    ev.stopPropagation();
+    if (ev.type === "touchmove") {
+      ev.preventDefault();
+    }
+
+    const pos = getMouseTouchLocation(ev, this._touchIdentifier);
+
+    if (!pos) {
+      return;
+    }
 
     let deltaX = pos.x - this.startX!;
     let deltaY = pos.y - this.startY!;
@@ -112,13 +130,16 @@ export class LitDraggable extends LitElement {
   }
 
   private _dragEnd(ev: MouseEvent | TouchEvent): void {
-    ev.stopPropagation();
-    ev.preventDefault();
-
     if (!this._dragging || this.disabled) {
       return;
     }
 
+    ev.stopPropagation();
+    if (ev.type === "touchend") {
+      ev.preventDefault();
+    }
+
+    this._touchIdentifier = undefined;
     this._dragging = false;
 
     fireEvent(this, "dragEnd");
