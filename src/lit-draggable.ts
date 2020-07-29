@@ -4,8 +4,6 @@ import {
   LitElement,
   TemplateResult,
   property,
-  CSSResult,
-  css,
 } from "lit-element";
 
 import { fireEvent } from "./util/fire-event";
