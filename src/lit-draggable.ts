@@ -60,17 +60,17 @@ export class LitDraggable extends LitElement {
   }
 
   private _dragStart(ev: MouseEvent | TouchEvent): void {
-    if (ev.type.startsWith("mouse") && (ev as MouseEvent).button !== 0) {
+    if (
+      (ev.type.startsWith("mouse") && (ev as MouseEvent).button !== 0) ||
+      this.disabled
+    ) {
       return;
     }
 
-    if (this.disabled) {
-      return;
-    }
+    ev.preventDefault();
+    ev.stopPropagation();
 
     if (ev.type === "touchstart") {
-      ev.preventDefault();
-
       this._touchIdentifier = getTouchIdentifier(ev as TouchEvent);
     }
 
@@ -96,9 +96,8 @@ export class LitDraggable extends LitElement {
       return;
     }
 
-    if (ev.type === "touchmove") {
-      ev.preventDefault();
-    }
+    ev.preventDefault();
+    ev.stopPropagation();
 
     const pos = getMouseTouchLocation(ev, this._touchIdentifier);
 
@@ -128,9 +127,9 @@ export class LitDraggable extends LitElement {
     if (!this._dragging || this.disabled) {
       return;
     }
-    if (ev.type === "touchend") {
-      ev.preventDefault();
-    }
+
+    ev.preventDefault();
+    ev.stopPropagation();
 
     this._touchIdentifier = undefined;
     this._dragging = false;
