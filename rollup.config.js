@@ -8,7 +8,7 @@ export default [
     output: {
       file: "dist/lit-draggable.js",
       format: "es",
-      sourceMap: true,
+      sourcemap: "inline",
     },
     plugins: [
       typescript(),
