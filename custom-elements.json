@@ -2,6 +2,23 @@
   "version": "experimental",
   "tags": [
     {
+      "name": "lit-draggable-wrapper",
+      "path": "./src\\lit-draggable-wrapper.ts",
+      "attributes": [
+        {
+          "name": "grid",
+          "type": "[number, number] | undefined"
+        }
+      ],
+      "properties": [
+        {
+          "name": "grid",
+          "attribute": "grid",
+          "type": "[number, number] | undefined"
+        }
+      ]
+    },
+    {
       "name": "lit-draggable",
       "path": "./src\\lit-draggable.ts",
       "attributes": [

@@ -1,6 +1,6 @@
 {
   "name": "lit-draggable",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "Zack Arnett",
   "license": "MIT",
   "description": "A draggable element for Lit Element",
@@ -20,6 +20,8 @@
     "build": "npm run build-ts && npm run build-rollup",
     "build-ts": "tsc",
     "build-rollup": "rollup -c",
+    "analyze": "wca analyze \"src/**/*.ts\" --outFile custom-elements.json",
+    "api": "wca src/lit-draggable.ts -f json2 --outFile docs.json --inlineTypes",
     "watch": "npm run build-ts && npm run watch-rollup",
     "watch-rollup": "rollup -cw",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix"
@@ -33,13 +35,15 @@
     "@rollup/plugin-typescript": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
     "rollup": "^2.22.1",
+    "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-terser": "^6.1.0",
     "ts-lit-plugin": "^1.2.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "web-component-analyzer": "^1.1.6"
   }
 }

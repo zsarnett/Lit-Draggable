@@ -1,0 +1,55 @@
+{
+  "version": "experimental",
+  "modules": [
+    {
+      "path": "./src\\lit-draggable.ts",
+      "exports": [
+        {
+          "kind": "definition",
+          "name": "lit-draggable",
+          "declaration": {
+            "name": "LitDraggable",
+            "module": "./src\\lit-draggable.ts"
+          }
+        },
+        {
+          "kind": "class",
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "name": "LitDraggable",
+          "members": [
+            {
+              "kind": "field",
+              "name": "grid",
+              "privacy": "public",
+              "type": "[number, number] | undefined"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": "boolean",
+              "default": "false"
+            }
+          ],
+          "tagName": "lit-draggable",
+          "attributes": [
+            {
+              "name": "grid",
+              "fieldName": "grid",
+              "type": "[number, number] | undefined"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled",
+              "defaultValue": "false",
+              "type": "boolean"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
