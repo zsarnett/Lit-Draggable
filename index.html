@@ -16,7 +16,7 @@
         touch-action: none;
       "
     >
-      <lit-draggable-wrapper>
+      <lit-draggable-wrapper handle=".handle">
         <div
           style="
             width: 150px;
@@ -27,9 +27,20 @@
             font-size: 22px;
             line-height: 100px;
             margin: auto;
-            cursor: move;
           "
         >
+          <div
+            class="handle"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 20px;
+              height: 20px;
+              background-color: blue;
+              cursor: move;
+            "
+          ></div>
           Drag Me!
         </div>
       </lit-draggable-wrapper>

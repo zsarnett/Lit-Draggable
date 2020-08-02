@@ -9,12 +9,15 @@ import {
 import { fireEvent } from "./util/fire-event";
 import { getMouseTouchLocation } from "./util/get-mouse-touch-location";
 import { getTouchIdentifier } from "./util/get-touch-identifier";
+import { matchesSelectorAndParentsTo } from "./util/match-selector";
 
 @customElement("lit-draggable")
 export class LitDraggable extends LitElement {
   @property({ type: Array }) public grid?: [number, number];
 
   @property({ type: Boolean, reflect: true }) public disabled = false;
+
+  @property() public handle?: string;
 
   private startX?: number;
 
@@ -63,6 +66,17 @@ export class LitDraggable extends LitElement {
     if (
       (ev.type.startsWith("mouse") && (ev as MouseEvent).button !== 0) ||
       this.disabled
+    ) {
+      return;
+    }
+
+    if (
+      this.handle &&
+      !matchesSelectorAndParentsTo(
+        ev.target! as Node,
+        this.handle,
+        this.offsetParent as Node
+      )
     ) {
       return;
     }

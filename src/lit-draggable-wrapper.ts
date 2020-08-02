@@ -17,6 +17,8 @@ import { fireEvent } from "./util/fire-event";
 export class LitDraggableWrapper extends LitElement {
   @property({ type: Array }) public grid?: [number, number];
 
+  @property() public handle?: string;
+
   private _startTop?: number;
 
   private _startLeft?: number;
@@ -24,6 +26,7 @@ export class LitDraggableWrapper extends LitElement {
   protected render(): TemplateResult {
     return html`
       <lit-draggable
+        .handle=${this.handle}
         @dragging=${this._drag}
         @dragStart=${this._dragStart}
         @dragEnd=${this._dragEnd}

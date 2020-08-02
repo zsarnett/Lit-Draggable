@@ -1,6 +1,6 @@
 {
   "name": "lit-draggable",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "author": "Zack Arnett",
   "license": "MIT",
   "description": "A draggable element for Lit Element",
