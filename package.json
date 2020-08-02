@@ -1,7 +1,18 @@
 {
   "name": "lit-draggable",
-  "version": "0.0.11",
+  "version": "0.0.12",
+  "author": "Zack Arnett",
+  "license": "MIT",
   "description": "A draggable element for Lit Element",
+  "homepage": "https://github.com/zsarnett/Lit-Draggable",
+  "repository": "https://github.com/zsarnett/Lit-Draggable",
+  "bugs": {
+    "url": "https://github.com/zsarnett/Lit-Draggable/issues",
+    "email": "zackarnett@zackarnett.com"
+  },
+  "files": [
+    "dist"
+  ],
   "main": "dist/lit-draggable.js",
   "module": "dist/lit-draggable.js",
   "type": "module",
@@ -13,9 +24,6 @@
     "watch-rollup": "rollup -cw",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix"
   },
-  "author": "Zack Arnett",
-  "repository": "https://github.com/zsarnett/Lit-Draggable",
-  "license": "MIT",
   "dependencies": {
     "lit-element": "^2.3.1",
     "lit-html": "^1.2.1"
